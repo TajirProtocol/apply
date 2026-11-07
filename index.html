@@ -13,8 +13,9 @@
 body{margin:0;background:var(--bg);font-family:"IBM Plex Sans Arabic",Tahoma,Arial,sans-serif;color:var(--ink);line-height:1.7;-webkit-text-size-adjust:100%}
 .hero{background:linear-gradient(135deg,#06302a 0%,var(--g) 70%,#1d6b55 100%);color:#fff;text-align:center;padding:38px 16px 34px;position:relative;overflow:hidden}
 .hero:after{content:"";position:absolute;inset:auto -80px -120px auto;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(212,175,55,.28),transparent 70%)}
-.hero h1{margin:0;font-size:40px;font-weight:700;letter-spacing:.02em}
-.hero p{margin:4px 0 0;font-size:16px;opacity:.92}
+.hero h1{margin:0;font-size:38px;font-weight:700;line-height:1.2}
+.hero .ln{width:44px;height:3px;border-radius:2px;background:var(--gold);margin:12px auto 10px}
+.hero p{margin:0;font-size:16px;font-weight:500;opacity:.95}
 .c{max-width:620px;margin:16px auto;padding:0 12px}
 .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 18px;margin-bottom:12px}
 .top{border-top:6px solid var(--g)}
@@ -48,7 +49,7 @@ h3{font-size:16px;margin:20px 0 6px;color:var(--g)}
 </style>
 </head>
 <body>
-<div class="hero"><h1>Tajir</h1><p id="sub">Liquidity Provider Program</p></div>
+<div class="hero"><h1 id="brand">Tajir</h1><div class="ln"></div><p id="sub">Liquidity Provider Program</p></div>
 <div class="c" id="app"><div class="card" style="text-align:center"><span class="spin"></span></div></div>
 <div class="f">Tajir Protocol Ltd. | British Virgin Islands | contact@tajirprotocol.com</div>
 <script>
@@ -67,7 +68,8 @@ var TX = {
     nextH:"What happens now", next:["Once your verification is approved, a 15 minute call with our team is booked for you automatically, between 13:00 and 15:00 Stockholm time.","You will receive two emails: a booking confirmation with a \"Manage my booking\" button, and a calendar invitation with the Google Meet link.","From \"Manage my booking\" you can change the time, or choose a WhatsApp call instead of Google Meet.","If you do not see our emails, please check your Spam folder."],
     howH:"How providing liquidity works", how:["A liquidity pool holds two tokens, TJR and USDT. Every time someone buys or sells, they pay a small trading fee.","Liquidity providers add both tokens to the pool, and receive a share of these fees in proportion to their position.","On the call, we will walk you through the steps one by one: connecting your wallet, creating your position on Uniswap in the TJR/USDT pool, and locking it for 6 months.","The position stays in your own wallet and in your name, and you can follow its fees on the blockchain at any time."],
     safeH:"Important for your safety", safe:"We will never ask for your passwords, your recovery phrase (seed phrase) or your private keys, and we will never hold or manage your funds. You do every step yourself from your own wallet, and our team only guides you. If anyone asks you for these in our name, do not respond and contact us.",
-    disc:"Providing liquidity can earn trading fees, and it can also lead to a loss in value. The final decision is always yours."},
+    disc:"Providing liquidity can earn trading fees, and it can also lead to a loss in value. The final decision is always yours.",
+    mT:"Manage your call", mCur:"Your current call", mHow:"Call method", mWhen:"Choose a time (shown in your local time)", mSave:"Save", mOk:"Saved. A confirmation email is on its way.", mMeet:"Google Meet (video link in the calendar invite)", mWa:"WhatsApp call", mWaH:"The WhatsApp number we should call you on", mPh:"e.g. 791234567", mErr:"This time is no longer available, please choose another.", mBad:"Please enter a valid WhatsApp number.", mNone:"This link is not valid or the call is no longer booked. Contact us at contact@tajirprotocol.com"},
   ar: {dir:"rtl", sub:"برنامج مزودي السيولة", step1:"الخطوة 1 من 3: الطلب", step2:"الخطوة 2 من 3: تفاصيل إضافية", step3:"الخطوة 3 من 3: التحقق من الهوية",
     pass:"اجتاز طلبك المراجعة الأولى. يرجى إكمال التفاصيل الأخيرة أدناه.", req:"مطلوب", send:"متابعة", sending:"يرجى الانتظار...",
     fix:"يرجى إكمال الحقول المطلوبة المحددة باللون الأحمر.", other:"أخرى", choose:"اختر", kycT:"الخطوة الأخيرة: التحقق من هويتك",
@@ -80,10 +82,11 @@ var TX = {
     nextH:"ماذا سيحدث الآن", next:["بعد قبول التحقق، يُحجز لك تلقائياً موعد مكالمة مدتها 15 دقيقة مع فريقنا، بين الساعة 13:00 و15:00 بتوقيت ستوكهولم.","ستصلك رسالتان: تأكيد الموعد مع زر \"إدارة الموعد\"، ودعوة تقويم فيها رابط Google Meet.","من زر \"إدارة الموعد\" يمكنك تغيير الوقت، أو اختيار مكالمة واتساب بدلاً من Google Meet.","إذا لم تجد رسائلنا، يرجى التحقق من مجلد الرسائل غير المرغوب فيها (Spam)."],
     howH:"كيف يتم تزويد السيولة", how:["حوض السيولة يحتوي على عملتين، TJR و USDT. وكل من يشتري أو يبيع يدفع رسوم تداول صغيرة.","مزودو السيولة يضيفون العملتين إلى الحوض، ويحصلون على حصة من هذه الرسوم بحسب حجم مركزهم.","في المكالمة سنرشدك خطوة بخطوة: ربط محفظتك، وإنشاء مركزك على Uniswap في حوض TJR/USDT، وقفله لمدة 6 أشهر.","يبقى المركز في محفظتك وباسمك، ويمكنك متابعة رسومه على البلوكتشين في أي وقت."],
     safeH:"مهم لسلامتك", safe:"لن نطلب منك أبداً كلمات المرور أو العبارة السرية (Seed phrase) أو المفاتيح الخاصة، ولن نحتفظ بأموالك أو نديرها نيابةً عنك. أنت تنفّذ كل الخطوات بنفسك من محفظتك، وفريقنا يرشدك فقط. إذا طلب منك أي شخص ذلك باسمنا، فلا تتجاوب معه وتواصل معنا.",
-    disc:"كما يمكن أن يحقق تزويد السيولة دخلاً من رسوم التداول، قد يؤدي أيضاً إلى انخفاض في القيمة، والقرار النهائي لك دائماً."}
+    disc:"كما يمكن أن يحقق تزويد السيولة دخلاً من رسوم التداول، قد يؤدي أيضاً إلى انخفاض في القيمة، والقرار النهائي لك دائماً.",
+    mT:"إدارة موعد المكالمة", mCur:"موعدك الحالي", mHow:"طريقة المكالمة", mWhen:"اختر الموعد (معروض بتوقيتك المحلي)", mSave:"حفظ", mOk:"تم الحفظ، وستصلك رسالة تأكيد على بريدك.", mMeet:"Google Meet (رابط فيديو في دعوة التقويم)", mWa:"مكالمة واتساب", mWaH:"رقم الواتساب الذي ترغب أن نتصل بك عليه", mPh:"مثال: 791234567", mErr:"هذا الموعد لم يعد متاحاً، يرجى اختيار موعد آخر.", mBad:"يرجى إدخال رقم واتساب صحيح.", mNone:"الرابط غير صالح أو الموعد غير متاح. تواصل معنا على contact@tajirprotocol.com"}
 };
 var T = TX.ar, app = document.getElementById("app");
-function setLang(l){ LANG = l; T = TX[l]; document.documentElement.lang = l; document.documentElement.dir = T.dir; document.getElementById("sub").textContent = T.sub; }
+function setLang(l){ LANG = l; T = TX[l]; document.documentElement.lang = l; document.documentElement.dir = T.dir; document.getElementById("sub").textContent = T.sub; document.getElementById("brand").textContent = l === "en" ? "Tajir" : "تاجر"; document.title = l === "en" ? "Tajir | Liquidity Provider Program" : "تاجر | برنامج مزودي السيولة"; }
 function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e;}
 function api(body, ok, bad){
   var tries = 0;
@@ -214,10 +217,50 @@ function done(tok){
   go();
 }
 
+var DIAL = "AF93,AL355,DZ213,AD376,AO244,AG1,AR54,AM374,AU61,AT43,AZ994,BS1,BH973,BD880,BB1,BY375,BE32,BZ501,BJ229,BT975,BO591,BA387,BW267,BR55,BN673,BG359,BF226,BI257,CV238,KH855,CM237,CA1,CF236,TD235,CL56,CN86,CO57,KM269,CG242,CD243,CR506,HR385,CU53,CY357,CZ420,DK45,DJ253,DM1,DO1,EC593,EG20,SV503,GQ240,ER291,EE372,SZ268,ET251,FJ679,FI358,FR33,GA241,GM220,GE995,DE49,GH233,GR30,GD1,GT502,GN224,GW245,GY592,HT509,HN504,HK852,HU36,IS354,IN91,ID62,IR98,IQ964,IE353,IL972,IT39,CI225,JM1,JP81,JO962,KZ7,KE254,KI686,XK383,KW965,KG996,LA856,LV371,LB961,LS266,LR231,LY218,LI423,LT370,LU352,MO853,MG261,MW265,MY60,MV960,ML223,MT356,MH692,MR222,MU230,MX52,FM691,MD373,MC377,MN976,ME382,MA212,MZ258,MM95,NA264,NR674,NP977,NL31,NZ64,NI505,NE227,NG234,KP850,MK389,NO47,OM968,PK92,PW680,PS970,PA507,PG675,PY595,PE51,PH63,PL48,PT351,QA974,RO40,RU7,RW250,KN1,LC1,VC1,WS685,SM378,ST239,SA966,SN221,RS381,SC248,SL232,SG65,SK421,SI386,SB677,SO252,ZA27,KR82,SS211,ES34,LK94,SD249,SR597,SE46,CH41,SY963,TW886,TJ992,TZ255,TH66,TL670,TG228,TO676,TT1,TN216,TR90,TM993,TV688,UG256,UA380,AE971,GB44,US1,UY598,UZ998,VU678,VA39,VE58,VN84,YE967,ZM260,ZW263";
+function manage(tok){
+  var w = el("div","card"); w.style.textAlign = "center"; w.appendChild(el("span","spin")); app.innerHTML = ""; app.appendChild(w);
+  api({a:"manage", t:tok}, function(r){
+    if (!r || !r.ok){ w.textContent = T.mNone; return; }
+    if (r.lang !== LANG){ setLang(r.lang); }
+    var LG = LANG === "en" ? "en-GB" : "ar";
+    app.innerHTML = ""; var c = el("div","card top"); c.appendChild(el("h2",null,T.mT));
+    c.appendChild(el("h3",null,T.mCur)); var cur = el("div","ok",fm(r.cur)); c.appendChild(cur);
+    c.appendChild(el("h3",null,T.mHow));
+    var ins = [];
+    [["Google Meet",T.mMeet],["WhatsApp",T.mWa]].forEach(function(x){ var lb = el("label","o"), i = el("input"); i.type = "radio"; i.name = "p"; i.value = x[0]; if ((r.plat === "WhatsApp") === (x[0] === "WhatsApp")) i.checked = true; lb.appendChild(i); lb.appendChild(el("span",null,x[1])); c.appendChild(lb); ins.push(i); });
+    var wb = el("div","safe"); wb.style.display = "none"; wb.appendChild(el("div","h",T.mWaH));
+    var D = DIAL.split(",").map(function(x){ return {iso:x.slice(0,2), code:x.slice(2)}; }), dn = null;
+    try { dn = new Intl.DisplayNames([LG], {type:"region"}); } catch(e){}
+    D.forEach(function(d){ d.n = dn ? dn.of(d.iso) : d.iso; }); D.sort(function(a,b){ return a.n.localeCompare(b.n, LG); });
+    var cc = el("select"), best = null, digits = String(r.wa || "").replace(/\D/g,"");
+    D.forEach(function(d){ var o = el("option",null,d.n + " (+" + d.code + ")"); o.value = d.iso; cc.appendChild(o); if (digits.indexOf(d.code) === 0 && (!best || d.code.length > best.code.length)) best = d; });
+    var row = el("div"); row.style.cssText = "display:flex;gap:6px;direction:ltr;margin-top:8px"; var pre = el("span","ok"); pre.style.cssText = "margin:0;padding:12px;min-width:60px;text-align:center"; var ph = el("input"); ph.type = "tel"; ph.inputMode = "numeric"; ph.placeholder = T.mPh;
+    row.appendChild(pre); row.appendChild(ph); wb.appendChild(cc); wb.appendChild(row); c.appendChild(wb);
+    if (best){ cc.value = best.iso; ph.value = digits.slice(best.code.length); } else cc.value = "SE";
+    function code(){ for (var i = 0; i < D.length; i++) if (D[i].iso === cc.value) return D[i].code; return ""; }
+    function sync(){ pre.textContent = "+" + code(); wb.style.display = ins[1].checked ? "block" : "none"; }
+    cc.onchange = sync; ins.forEach(function(i){ i.onchange = sync; }); sync();
+    c.appendChild(el("h3",null,T.mWhen)); var se = el("select"); r.slots.forEach(function(s){ var o = el("option",null,fm(s)); o.value = s; if (s === r.cur) o.selected = true; se.appendChild(o); }); c.appendChild(se);
+    var b = el("button","btn",T.mSave); b.style.marginTop = "18px"; c.appendChild(b); var m = el("p","h"); m.style.textAlign = "center"; c.appendChild(m);
+    app.appendChild(c);
+    b.onclick = function(){
+      var p = ins[1].checked ? "WhatsApp" : "Google Meet", num = "";
+      if (p === "WhatsApp"){ var n = ph.value.replace(/\D/g,"").replace(/^0+/,""); if (n.length < 6 || n.length > 13){ m.textContent = T.mBad; return; } num = "+" + code() + n; }
+      b.disabled = true; m.textContent = T.sending;
+      api({a:"save", t:tok, iso:se.value, p:p, wa:num}, function(x){ b.disabled = false; var rr = x && x.r;
+        if (rr === "ok"){ m.textContent = T.mOk; cur.textContent = fm(se.value); } else if (rr === "badwa") m.textContent = T.mBad; else m.textContent = T.mErr; },
+        function(){ b.disabled = false; m.textContent = T.err; });
+    };
+  }, function(){ w.textContent = T.err; });
+}
+
 (function start(){
+  var mm = P.get("m");
+  if (mm){ setLang(LANG || "ar"); manage(mm); return; }
   var d = P.get("done");
   if (d){ setLang(LANG || "ar"); done(d); return; }
-  if (!LANG){ setLang("ar"); document.getElementById("sub").textContent = "Liquidity Provider Program"; chooser(); return; }
+  if (!LANG){ setLang("en"); document.documentElement.dir = "rtl"; chooser(); return; }
   setLang(LANG);
   app.innerHTML = ""; var w = el("div","card"); w.style.textAlign = "center"; w.appendChild(el("span","spin")); w.appendChild(document.createTextNode(T.load)); app.appendChild(w);
   api({a:"schema", l:LANG}, function(r){ if (r && r.p1){ S = r; p1(); } else { w.textContent = T.err; } }, function(){ w.textContent = T.err; });
