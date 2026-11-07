@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tajir | Liquidity Provider Program</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--g:#0f5c4d;--gd:#083a31;--gold:#d4af37;--bg:#eef3f1;--ink:#13231f;--mut:#5d6e69;--line:#d6e1dd;--red:#c0392b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);font-family:"IBM Plex Sans Arabic",Tahoma,Arial,sans-serif;color:var(--ink);line-height:1.7;-webkit-text-size-adjust:100%}
+.hero{background:linear-gradient(135deg,#06302a 0%,var(--g) 70%,#1d6b55 100%);color:#fff;text-align:center;padding:38px 16px 34px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;inset:auto -80px -120px auto;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(212,175,55,.28),transparent 70%)}
+.hero h1{margin:0;font-size:40px;font-weight:700;letter-spacing:.02em}
+.hero p{margin:4px 0 0;font-size:16px;opacity:.92}
+.c{max-width:620px;margin:16px auto;padding:0 12px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 18px;margin-bottom:12px}
+.top{border-top:6px solid var(--g)}
+.st{display:inline-block;background:#e9f3f0;color:var(--g);border-radius:20px;padding:3px 12px;font-size:13px;font-weight:700;margin-bottom:8px}
+h2{font-size:21px;margin:4px 0 8px}
+.desc{white-space:pre-line;color:#3c4b47;font-size:14.5px}
+.q{font-weight:700;font-size:15.5px;margin-bottom:4px}.q .r{color:var(--red)}
+.h{white-space:pre-line;color:var(--mut);font-size:13.5px;margin-bottom:8px}
+.sec{background:var(--g);color:#fff}.sec .h{color:#d7ebe5}
+input[type=text],input[type=email],input[type=tel],input[type=date],textarea,select{width:100%;border:1px solid #c5d3ce;border-radius:10px;padding:12px;font:inherit;font-size:16px;background:#fff;color:var(--ink)}
+textarea{min-height:90px}
+label.o{display:flex;gap:10px;align-items:flex-start;padding:9px 6px;border-radius:8px;cursor:pointer;font-size:15px}
+label.o input{margin-top:5px;width:19px;height:19px;flex:none;accent-color:var(--g)}
+.bad{border-color:var(--red)!important;box-shadow:0 0 0 1px var(--red)}
+.em{color:var(--red);font-size:13px;margin-top:6px;display:none}.bad .em{display:block}
+.btn{display:block;width:100%;background:var(--g);color:#fff;border:2px solid var(--gold);border-radius:14px;padding:15px;font:inherit;font-size:18px;font-weight:700;cursor:pointer;text-align:center;text-decoration:none}
+.btn[disabled]{opacity:.6}
+.msg{display:none;background:#fdecec;color:#8a1c1c;border-radius:10px;padding:10px 12px;margin-bottom:10px;font-size:14px}
+.ok{background:#e9f3f0;color:var(--g);border-radius:10px;padding:12px;font-weight:700;margin-bottom:12px}
+.f{font-size:11px;color:var(--mut);text-align:center;margin:18px 0 26px;direction:ltr}
+ul.k,ol.k{padding-inline-start:20px;margin:0}ul.k li,ol.k li{margin:6px 0;font-size:14.5px}
+.lang{display:grid;gap:14px;margin-top:6px}
+.lang a{display:flex;align-items:center;justify-content:center;height:64px;font-size:22px}
+.slot{background:var(--g);color:#fff;border-radius:12px;padding:12px 14px;margin:14px 0;font-size:15px}.slot b{display:block;font-size:18px}
+.wait{background:#e9f3f0;color:var(--g)}
+.safe{background:#fff6e5;border:1px solid #f0d9a8;border-radius:12px;padding:12px 14px;font-size:14.5px}
+.disc{font-size:12.5px;color:var(--mut);margin-top:14px}
+h3{font-size:16px;margin:20px 0 6px;color:var(--g)}
+.spin{display:inline-block;width:14px;height:14px;border:2px solid currentColor;border-top-color:transparent;border-radius:50%;animation:s 1s linear infinite;vertical-align:-2px;margin-inline-end:6px}
+@keyframes s{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+<div class="hero"><h1>Tajir</h1><p id="sub">Liquidity Provider Program</p></div>
+<div class="c" id="app"><div class="card" style="text-align:center"><span class="spin"></span></div></div>
+<div class="f">Tajir Protocol Ltd. | British Virgin Islands | contact@tajirprotocol.com</div>
+<script>
+var API = "https://script.google.com/macros/s/AKfycbz9HtCSIlh5TaqlNx_d_PLimbMJVTFBIS1IZE1q_xNTrczmgvDDdzezU9wPZRu5-7Br/exec";
+var P = new URLSearchParams(location.search), LANG = P.get("l") === "en" ? "en" : (P.get("l") === "ar" ? "ar" : ""), TOK = "", S = null;
+var TX = {
+  en: {dir:"ltr", sub:"Liquidity Provider Program", step1:"Step 1 of 3: Application", step2:"Step 2 of 3: A few more details", step3:"Step 3 of 3: Identity verification",
+    pass:"Your application passed the first review. Please complete the last details below.", req:"Required", send:"Continue", sending:"Please wait...",
+    fix:"Please complete the required fields marked in red.", other:"Other", choose:"Choose", kycT:"Last step: verify your identity",
+    kycP:["This takes about 2 minutes with your ID and your phone camera, through our verification partner Veriff.","Once approved, your 15 minute call with our team is booked automatically and shown on the next page.","We never ask for passwords, recovery phrases or private keys, and we never hold your funds."],
+    kycB:"Start verification", rejT:"Thank you for your interest", err:"Something went wrong. Please try again, or contact us at contact@tajirprotocol.com",
+    exp:"Your session expired. Please refresh the page and start again.", spam:"We also sent you a copy by email (check your Spam folder).", load:"Loading...",
+    thx:"Thank you", thxSub:"Your identity verification has been submitted successfully.", wait:"Confirming your verification and booking your call. Please keep this page open, it usually takes 1 to 3 minutes.",
+    booked:"Your call is booked for:", later:"Your verification is still under review. As soon as it is approved, your booking confirmation will reach your email.",
+    declined:"We could not approve your identity verification. You will receive an email with the details.", resub:"Veriff asked for your verification to be repeated. Please check your email for the new link.",
+    nextH:"What happens now", next:["Once your verification is approved, a 15 minute call with our team is booked for you automatically, between 13:00 and 15:00 Stockholm time.","You will receive two emails: a booking confirmation with a \"Manage my booking\" button, and a calendar invitation with the Google Meet link.","From \"Manage my booking\" you can change the time, or choose a WhatsApp call instead of Google Meet.","If you do not see our emails, please check your Spam folder."],
+    howH:"How providing liquidity works", how:["A liquidity pool holds two tokens, TJR and USDT. Every time someone buys or sells, they pay a small trading fee.","Liquidity providers add both tokens to the pool, and receive a share of these fees in proportion to their position.","On the call, we will walk you through the steps one by one: connecting your wallet, creating your position on Uniswap in the TJR/USDT pool, and locking it for 6 months.","The position stays in your own wallet and in your name, and you can follow its fees on the blockchain at any time."],
+    safeH:"Important for your safety", safe:"We will never ask for your passwords, your recovery phrase (seed phrase) or your private keys, and we will never hold or manage your funds. You do every step yourself from your own wallet, and our team only guides you. If anyone asks you for these in our name, do not respond and contact us.",
+    disc:"Providing liquidity can earn trading fees, and it can also lead to a loss in value. The final decision is always yours."},
+  ar: {dir:"rtl", sub:"برنامج مزودي السيولة", step1:"الخطوة 1 من 3: الطلب", step2:"الخطوة 2 من 3: تفاصيل إضافية", step3:"الخطوة 3 من 3: التحقق من الهوية",
+    pass:"اجتاز طلبك المراجعة الأولى. يرجى إكمال التفاصيل الأخيرة أدناه.", req:"مطلوب", send:"متابعة", sending:"يرجى الانتظار...",
+    fix:"يرجى إكمال الحقول المطلوبة المحددة باللون الأحمر.", other:"أخرى", choose:"اختر", kycT:"الخطوة الأخيرة: التحقق من هويتك",
+    kycP:["يستغرق نحو دقيقتين باستخدام إثبات الهوية وكاميرا هاتفك، عبر شريكنا في التحقق Veriff.","بعد قبول التحقق، يُحجز لك تلقائياً موعد مكالمة مدتها 15 دقيقة مع فريقنا، ويظهر لك في الصفحة التالية.","لن نطلب منك أبداً كلمات المرور أو العبارة السرية أو المفاتيح الخاصة، ولا نحتفظ بأموالك."],
+    kycB:"ابدأ التحقق", rejT:"شكراً لاهتمامك", err:"حدث خطأ، يرجى المحاولة مرة أخرى أو التواصل معنا على contact@tajirprotocol.com",
+    exp:"انتهت صلاحية الجلسة، يرجى تحديث الصفحة والبدء من جديد.", spam:"أرسلنا لك نسخة على بريدك الإلكتروني أيضاً (تحقق من مجلد Spam).", load:"جاري التحميل...",
+    thx:"شكراً لك", thxSub:"تم إرسال التحقق من هويتك بنجاح.", wait:"جاري تأكيد التحقق من هويتك وحجز موعدك. يرجى إبقاء هذه الصفحة مفتوحة، عادةً يستغرق ذلك من 1 إلى 3 دقائق.",
+    booked:"موعد مكالمتك محجوز في:", later:"ما زال التحقق قيد المراجعة. فور قبوله، سيصلك تأكيد الموعد على بريدك الإلكتروني.",
+    declined:"لم نتمكن من قبول التحقق من هويتك، وستصلك رسالة بالتفاصيل على بريدك الإلكتروني.", resub:"طلب Veriff إعادة التحقق، يرجى مراجعة بريدك الإلكتروني للرابط الجديد.",
+    nextH:"ماذا سيحدث الآن", next:["بعد قبول التحقق، يُحجز لك تلقائياً موعد مكالمة مدتها 15 دقيقة مع فريقنا، بين الساعة 13:00 و15:00 بتوقيت ستوكهولم.","ستصلك رسالتان: تأكيد الموعد مع زر \"إدارة الموعد\"، ودعوة تقويم فيها رابط Google Meet.","من زر \"إدارة الموعد\" يمكنك تغيير الوقت، أو اختيار مكالمة واتساب بدلاً من Google Meet.","إذا لم تجد رسائلنا، يرجى التحقق من مجلد الرسائل غير المرغوب فيها (Spam)."],
+    howH:"كيف يتم تزويد السيولة", how:["حوض السيولة يحتوي على عملتين، TJR و USDT. وكل من يشتري أو يبيع يدفع رسوم تداول صغيرة.","مزودو السيولة يضيفون العملتين إلى الحوض، ويحصلون على حصة من هذه الرسوم بحسب حجم مركزهم.","في المكالمة سنرشدك خطوة بخطوة: ربط محفظتك، وإنشاء مركزك على Uniswap في حوض TJR/USDT، وقفله لمدة 6 أشهر.","يبقى المركز في محفظتك وباسمك، ويمكنك متابعة رسومه على البلوكتشين في أي وقت."],
+    safeH:"مهم لسلامتك", safe:"لن نطلب منك أبداً كلمات المرور أو العبارة السرية (Seed phrase) أو المفاتيح الخاصة، ولن نحتفظ بأموالك أو نديرها نيابةً عنك. أنت تنفّذ كل الخطوات بنفسك من محفظتك، وفريقنا يرشدك فقط. إذا طلب منك أي شخص ذلك باسمنا، فلا تتجاوب معه وتواصل معنا.",
+    disc:"كما يمكن أن يحقق تزويد السيولة دخلاً من رسوم التداول، قد يؤدي أيضاً إلى انخفاض في القيمة، والقرار النهائي لك دائماً."}
+};
+var T = TX.ar, app = document.getElementById("app");
+function setLang(l){ LANG = l; T = TX[l]; document.documentElement.lang = l; document.documentElement.dir = T.dir; document.getElementById("sub").textContent = T.sub; }
+function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e;}
+function api(body, ok, bad){
+  var tries = 0;
+  (function go(){
+    fetch(API, {method:"POST", body:JSON.stringify(body), headers:{"Content-Type":"text/plain;charset=utf-8"}, credentials:"omit", redirect:"follow"})
+      .then(function(r){ return r.json(); }).then(ok)
+      .catch(function(e){ if (++tries < 3) setTimeout(go, 1500); else bad(e); });
+  })();
+}
+
+function chooser(){
+  app.innerHTML = "";
+  var c = el("div","card top"); c.style.textAlign = "center";
+  c.appendChild(el("h2",null,"اختر اللغة | Choose language"));
+  var g = el("div","lang");
+  [["ar","العربية"],["en","English"]].forEach(function(x){ var a = el("a","btn",x[1]); a.href = "?l=" + x[0]; g.appendChild(a); });
+  c.appendChild(g); app.appendChild(c);
+}
+
+function render(F, step, intro){
+  app.innerHTML = "";
+  var hd = el("div","card top"); hd.appendChild(el("div","st",step));
+  if (intro) hd.appendChild(el("div","ok",intro));
+  hd.appendChild(el("h2",null,F.title)); if (F.desc && !intro) hd.appendChild(el("div","desc",F.desc));
+  app.appendChild(hd);
+  var qs = [], all = [];
+  F.items.forEach(function(it, ix){
+    if (it.ty === "SECTION_HEADER" || it.ty === "PAGE_BREAK"){ var s = el("div","card sec"); if (it.t) s.appendChild(el("div","q",it.t)); if (it.h) s.appendChild(el("div","h",it.h)); app.appendChild(s); all.push({pg:it.pg, cd:s}); return; }
+    var cd = el("div","card"), q = el("div","q",it.t); if (it.req) q.appendChild(el("span","r"," *")); cd.appendChild(q); if (it.h) cd.appendChild(el("div","h",it.h));
+    var nm = "q" + ix, get;
+    if (it.ty === "TEXT" || it.ty === "DATE"){
+      var tp = it.ty === "DATE" ? "date" : (/البريد|mail/i.test(it.t) ? "email" : (/واتساب|whatsapp|هاتف|phone/i.test(it.t) ? "tel" : "text"));
+      var i = el("input"); i.type = tp; if (tp !== "text") i.dir = "ltr"; if (tp === "email"){ i.autocomplete = "email"; it.em = 1; } if (tp === "tel") i.autocomplete = "tel";
+      cd.appendChild(i); get = function(){ return i.value.trim(); };
+    } else if (it.ty === "PARAGRAPH_TEXT"){
+      var a = el("textarea"); cd.appendChild(a); get = function(){ return a.value.trim(); };
+    } else if (it.ty === "LIST"){
+      var se = el("select"), o0 = el("option",null,T.choose); o0.value = ""; se.appendChild(o0);
+      it.ch.forEach(function(c){ var o = el("option",null,c); o.value = c; se.appendChild(o); });
+      cd.appendChild(se); get = function(){ return se.value; };
+    } else {
+      var multi = it.ty === "CHECKBOX", ins = [], ot = null, opts = it.ch.slice(); if (it.other) opts.push("__o");
+      opts.forEach(function(c){
+        var lb = el("label","o"), i = el("input"); i.type = multi ? "checkbox" : "radio"; i.name = nm; i.value = c;
+        lb.appendChild(i); lb.appendChild(el("span",null,c === "__o" ? T.other : c)); cd.appendChild(lb); ins.push(i);
+        if (c === "__o"){ ot = el("input"); ot.type = "text"; ot.style.display = "none"; cd.appendChild(ot); }
+      });
+      ins.forEach(function(i){ i.addEventListener("change", function(){ if (ot) ot.style.display = ins[ins.length-1].checked && it.other ? "block" : "none"; cd.classList.remove("bad"); }); });
+      get = function(){ var v = ins.filter(function(i){ return i.checked; }).map(function(i){ return i.value === "__o" ? (ot.value.trim() || T.other) : i.value; }); return multi ? v : (v[0] || ""); };
+    }
+    cd.appendChild(el("div","em",T.req)); cd.addEventListener("input", function(){ cd.classList.remove("bad"); });
+    app.appendChild(cd); var Q = {it:it, cd:cd, get:get, pg:it.pg}; qs.push(Q); all.push(Q);
+  });
+  var m = el("div","msg"); app.appendChild(m); var b = el("button","btn",T.send); app.appendChild(b);
+  var R = {qs:qs, all:all, b:b, m:m, F:F};
+  app.onchange = function(){ vis(R); }; app.oninput = function(){ vis(R); }; vis(R);
+  return R;
+}
+function vis(R){
+  var F = R.F, seen = {}, cur = 0, g = 0;
+  while (cur < F.pages && !seen[cur] && g < 60){
+    g++; seen[cur] = 1; var nx = null, stop = false;
+    R.qs.forEach(function(x){ if (x.pg !== cur || !x.it.nav) return; var k = x.it.ch.indexOf(x.get()); if (k < 0){ stop = true; return; } if (x.it.nav[k]) nx = x.it.nav[k]; });
+    if (stop) break; if (!nx) nx = (F.ends && F.ends[cur]) || null; if (nx && nx.s) break;
+    cur = (nx && nx.to != null) ? nx.to : cur + 1;
+  }
+  R.all.forEach(function(x){ x.cd.style.display = seen[x.pg] ? "" : "none"; }); R.seen = seen;
+}
+function collect(R){
+  var ok = true, ans = [];
+  R.qs.forEach(function(x){
+    if (!R.seen[x.pg]) return;
+    var v = x.get(), empty = Array.isArray(v) ? (x.it.ty === "CHECKBOX" && x.it.req ? v.length < x.it.ch.length : !v.length) : !v;
+    var bad = (x.it.req && empty) || (x.it.em && v && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v));
+    x.cd.classList.toggle("bad", bad); if (bad) ok = false; ans.push([x.it.t, v]);
+  });
+  if (!ok){ R.m.textContent = T.fix; R.m.style.display = "block"; var f = document.querySelector(".bad"); if (f) f.scrollIntoView({behavior:"smooth", block:"center"}); return null; }
+  R.m.style.display = "none"; return ans;
+}
+function busy(R,on){ R.b.disabled = on; R.b.textContent = on ? T.sending : T.send; }
+function fail(R,t){ busy(R,false); R.m.textContent = t || T.err; R.m.style.display = "block"; }
+
+function p1(){
+  var R = render(S.p1, T.step1);
+  R.b.onclick = function(){ var a = collect(R); if (!a) return; busy(R,true);
+    api({a:"submit1", l:LANG, ans:a}, function(r){
+      if (r && r.ok){ TOK = r.t; p2(); window.scrollTo(0,0); } else if (r && r.rej) rej(r.rej); else fail(R, r && r.err);
+    }, function(){ fail(R); });
+  };
+}
+function rej(ps){ app.innerHTML = ""; var c = el("div","card top"); c.appendChild(el("h2",null,T.rejT)); ps.forEach(function(p){ c.appendChild(el("p",null,p)); }); c.appendChild(el("p","h",T.spam)); app.appendChild(c); window.scrollTo(0,0); }
+function p2(){
+  var R = render(S.p2, T.step2, T.pass);
+  R.b.onclick = function(){ var a = collect(R); if (!a) return; busy(R,true);
+    api({a:"submit2", t:TOK, ans:a}, function(r){
+      if (r && r.ok && r.url) kyc(r.url); else fail(R, r && r.err === "expired" ? T.exp : null);
+    }, function(){ fail(R); });
+  };
+}
+function kyc(u){
+  app.innerHTML = ""; var c = el("div","card top"); c.appendChild(el("div","st",T.step3)); c.appendChild(el("h2",null,T.kycT));
+  var ul = el("ul","k"); T.kycP.forEach(function(p){ ul.appendChild(el("li",null,p)); }); c.appendChild(ul);
+  var a = el("a","btn",T.kycB); a.href = u; a.style.marginTop = "16px"; c.appendChild(a); app.appendChild(c); window.scrollTo(0,0);
+}
+
+function fm(i){ return new Date(i).toLocaleString(LANG === "en" ? "en-GB" : "ar", {weekday:"long", day:"numeric", month:"long", hour:"2-digit", minute:"2-digit"}); }
+function done(tok){
+  app.innerHTML = ""; var c = el("div","card top");
+  var h = el("h2",null,T.thx); c.appendChild(h); c.appendChild(el("p","h",T.thxSub));
+  var box = el("div","slot wait"); var sp = el("span","spin"); box.appendChild(sp); box.appendChild(document.createTextNode(T.wait)); c.appendChild(box);
+  function ol(hd, arr){ c.appendChild(el("h3",null,hd)); var o = el("ol","k"); arr.forEach(function(x){ o.appendChild(el("li",null,x)); }); c.appendChild(o); }
+  ol(T.nextH, T.next); ol(T.howH, T.how);
+  c.appendChild(el("h3",null,T.safeH)); c.appendChild(el("div","safe",T.safe)); c.appendChild(el("p","disc",T.disc));
+  app.appendChild(c);
+  var n = 0;
+  function show(r){
+    if (r && r.name) h.textContent = T.thx + (LANG === "en" ? ", " : " يا ") + r.name;
+    if (r && r.s === "booked"){ box.className = "slot"; box.innerHTML = ""; box.appendChild(document.createTextNode(T.booked)); var b = el("b",null,fm(r.iso)); box.appendChild(b); return; }
+    if (r && r.s === "declined"){ box.className = "msg"; box.style.display = "block"; box.textContent = T.declined; return; }
+    if (r && r.s === "resubmit" && n > 6){ box.className = "slot wait"; box.textContent = T.resub; return; }
+    if (++n > 40){ box.className = "slot wait"; box.textContent = T.later; return; }
+    setTimeout(go, 15000);
+  }
+  function go(){ api({a:"status", t:tok}, function(r){
+      if (r && r.lang && r.lang !== LANG){ setLang(r.lang); done(tok); return; }
+      show(r);
+    }, function(){ n++; setTimeout(go, 15000); }); }
+  go();
+}
+
+(function start(){
+  var d = P.get("done");
+  if (d){ setLang(LANG || "ar"); done(d); return; }
+  if (!LANG){ setLang("ar"); document.getElementById("sub").textContent = "Liquidity Provider Program"; chooser(); return; }
+  setLang(LANG);
+  app.innerHTML = ""; var w = el("div","card"); w.style.textAlign = "center"; w.appendChild(el("span","spin")); w.appendChild(document.createTextNode(T.load)); app.appendChild(w);
+  api({a:"schema", l:LANG}, function(r){ if (r && r.p1){ S = r; p1(); } else { w.textContent = T.err; } }, function(){ w.textContent = T.err; });
+})();
+</script>
+</body>
+</html>
